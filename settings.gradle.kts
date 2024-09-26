@@ -23,3 +23,4 @@ rootProject.name = "Demiurge"
 include(":app")
 include(":data")
 include(":domain")
+include(":uikit")

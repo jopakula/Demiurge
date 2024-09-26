@@ -64,6 +64,7 @@ dependencies {
     // modules
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(":uikit"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
