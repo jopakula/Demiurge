@@ -1,6 +1,7 @@
 package com.example.uikit.demiurge.button
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,7 +28,8 @@ fun MyButton(
     buttonHeight: Dp = 36.dp,
     buttonBGColor: Color = ButtonBG,
     buttonText: String = ButtonText,
-    roundingSize: Dp = 8.dp
+    roundingSize: Dp = 4.dp,
+    onClick: () -> Unit = {},
 ) {
 
     Row(
@@ -35,6 +37,7 @@ fun MyButton(
             .fillMaxWidth()
             .height(buttonHeight)
             .clip(RoundedCornerShape(roundingSize))
+            .clickable { onClick() }
             .background(
                 color = buttonBGColor,
                 shape = RoundedCornerShape(roundingSize)
@@ -48,7 +51,6 @@ fun MyButton(
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal)
     }
-
 }
 
 @Composable

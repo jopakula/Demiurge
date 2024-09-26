@@ -56,8 +56,8 @@ fun MyIcon(
     val icon =
         when (iconType) {
             IconType.Dead -> painterResource(id = R.drawable.dead)
-            IconType.Alive -> painterResource(id = R.drawable.dead)
-            IconType.Life -> painterResource(id = R.drawable.dead)
+            IconType.Alive -> painterResource(id = R.drawable.alive)
+            IconType.Life -> painterResource(id = R.drawable.life)
         }
 
     Box(
