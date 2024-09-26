@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.demiurge.ui.viewModels.MainViewModel
 import com.example.uikit.demiurge.button.MyButton
-import com.example.uikit.demiurge.card.MyCard
+import com.example.uikit.demiurge.card.AnimatedCard
 import com.example.uikit.demiurge.common.MainBottom
 import com.example.uikit.demiurge.common.MainText
 import com.example.uikit.demiurge.common.MainTop
@@ -35,7 +35,6 @@ fun MainScreen(
 ) {
     val listState = rememberLazyListState()
     val label = MainText
-
     val cards = viewModel.getCards()
 
     LaunchedEffect(cards.size) {
@@ -65,7 +64,7 @@ fun MainScreen(
             state = listState,
         ) {
             items(cards) { cardType ->
-                MyCard(cardType = cardType)
+                AnimatedCard(cardType = cardType)
             }
         }
         MyButton(
