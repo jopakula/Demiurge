@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
  */
 
 val White = Color(0xFFFFFFFF)
+val ButtonBG = Color(0xFF5A3472)
 val DeadTop = Color(0xFF0D658A)
 val DeadBottom = Color(0xFFB0FFB4)
 val AliveTop = Color(0xFFFFB800)
