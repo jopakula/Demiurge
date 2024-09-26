@@ -42,6 +42,7 @@ fun MyIcon(
     modifier: Modifier = Modifier,
     iconType: IconType = IconType.Dead,
     iconSize: Dp = 40.dp,
+    imageSize: Dp = 22.dp,
     iconColor: Color? = null,
 ) {
 
@@ -63,13 +64,16 @@ fun MyIcon(
         modifier = modifier
             .size(iconSize)
             .clip(RoundedCornerShape(iconSize))
-            .background(brush = Brush.verticalGradient(backgroundColor)),
+            .background(
+                brush = Brush.verticalGradient(backgroundColor),
+                shape = RoundedCornerShape(iconSize)
+            ),
         contentAlignment = Alignment.Center
     ) {
 
         Image(
             modifier = Modifier
-                .size(22.dp),
+                .size(imageSize),
             painter = icon,
             contentDescription = null,
             contentScale = ContentScale.Fit,
