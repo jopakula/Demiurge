@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -31,8 +33,16 @@ import com.example.uikit.demiurge.common.White
 fun MainScreen(
     viewModel: MainViewModel = viewModel()
 ) {
+    val listState = rememberLazyListState()
     val label = MainText
-    val cardList = viewModel.cardList
+
+    val cards = viewModel.getCards()
+
+    LaunchedEffect(cards.size) {
+        if (cards.isNotEmpty()) {
+            listState.animateScrollToItem(cards.size - 1)
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -51,12 +61,12 @@ fun MainScreen(
         LazyColumn(
             modifier = Modifier.weight(1f),
             contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            state = listState,
         ) {
-            items(cardList){ cardType ->
+            items(cards) { cardType ->
                 MyCard(cardType = cardType)
             }
-
         }
         MyButton(
             modifier = Modifier
