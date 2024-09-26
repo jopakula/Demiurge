@@ -51,9 +51,8 @@ android {
 
 dependencies {
 
-    // koin
-    implementation(libs.koin.core)
-    implementation(libs.koin.androidx.compose)
+    // navigation
+    implementation(libs.androidx.navigation.compose)
 
     // viewmodel
     implementation(libs.androidx.viewmodel.compose)
@@ -62,12 +61,11 @@ dependencies {
     implementation(libs.lottie)
 
     // modules
-    implementation(project(":data"))
-    implementation(project(":domain"))
     implementation(project(":uikit"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)

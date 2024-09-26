@@ -10,7 +10,5 @@ java {
 
 dependencies {
 
-    // koin
-    implementation(libs.koin.core)
 
 }
