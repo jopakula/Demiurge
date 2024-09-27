@@ -5,4 +5,5 @@ sealed class Screens (
 ){
     data object Splash: Screens("splash")
     data object Main: Screens("main")
+    data object Test: Screens("test")
 }

@@ -25,6 +25,11 @@ import com.example.uikit.demiurge.common.ButtonBG
 import com.example.uikit.demiurge.common.ButtonText
 import com.example.uikit.demiurge.common.White
 
+/**
+ * Компонент для отображения кнопки
+ *
+ */
+
 @Composable
 fun MyButton(
     modifier: Modifier = Modifier,

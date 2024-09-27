@@ -35,6 +35,11 @@ enum class CardType {
     Life,
 }
 
+/**
+ * Компонент для отображения карточки
+ *
+ */
+
 @Composable
 fun MyCard(
     modifier: Modifier = Modifier,

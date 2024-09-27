@@ -12,6 +12,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
+/**
+ * Компонент для отображения анимированной карточки
+ *
+ */
+
 @Composable
 fun AnimatedCard(cardType: CardType) {
     var visible by remember { mutableStateOf(false) }

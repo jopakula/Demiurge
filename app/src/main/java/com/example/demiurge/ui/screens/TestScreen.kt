@@ -1,7 +1,6 @@
 package com.example.demiurge.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,24 +21,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.demiurge.ui.navigation.Screens
-import com.example.demiurge.ui.viewModels.MainViewModel
+import com.example.demiurge.ui.viewModels.TestViewModel
 import com.example.uikit.demiurge.button.MyButton
 import com.example.uikit.demiurge.card.AnimatedCard
+import com.example.uikit.demiurge.common.ButtonTestAliveText
+import com.example.uikit.demiurge.common.ButtonTestDeadText
 import com.example.uikit.demiurge.common.MainBottom
-import com.example.uikit.demiurge.common.MainText
 import com.example.uikit.demiurge.common.MainTop
+import com.example.uikit.demiurge.common.TestText
 import com.example.uikit.demiurge.common.White
 
 @Composable
-fun MainScreen(
-    viewModel: MainViewModel = viewModel(),
-    navigationController: NavController,
+fun TestScreen(
+    viewModel: TestViewModel = viewModel(),
 ) {
     val listState = rememberLazyListState()
-    val label = MainText
+    val label = TestText
     val cards = viewModel.getCards()
 
     LaunchedEffect(cards.size) {
@@ -56,8 +53,7 @@ fun MainScreen(
     ) {
         Text(
             modifier = Modifier
-                .padding(16.dp)
-                .clickable { navigationController.navigate(Screens.Test.screen) },
+                .padding(16.dp),
             text = label,
             color = White,
             fontSize = 20.sp,
@@ -78,14 +74,24 @@ fun MainScreen(
                 .padding(start = 16.dp, top = 4.dp, end = 16.dp, bottom = 16.dp)
                 .navigationBarsPadding(),
             onClick = {
-                viewModel.addCard()
-            }
+                viewModel.addAliveCard()
+            },
+            buttonText = ButtonTestAliveText
+        )
+        MyButton(
+            modifier = Modifier
+                .padding(start = 16.dp, top = 4.dp, end = 16.dp, bottom = 16.dp)
+                .navigationBarsPadding(),
+            onClick = {
+                viewModel.addDeadCard()
+            },
+            buttonText = ButtonTestDeadText
         )
     }
 }
 
 @Composable
 @Preview
-private fun MainScreenPreview() {
-    MainScreen(navigationController = rememberNavController())
+private fun TestScreenPreview() {
+    TestScreen()
 }
